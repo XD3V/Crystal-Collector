@@ -1,0 +1,52 @@
+/* These are all free photos, but i just wanted to credit the artist even though it was not  necessary */
+
+html { 
+ /*Photo by Tim Mossholder on Unsplash*/
+    background: url(bgimg.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+.move{
+  top: 80%;
+}
+
+  #coffeepic1{
+    /*Photo by Brigitte Tohm on UnsplashPhoto*/
+  
+    float: left;
+    margin-top: 5%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+    bottom: 0px;
+  
+  }
+
+  #coffeepic2{
+    /*Photo by frankie on Unsplash*/
+
+    float: left;
+    margin-top: 5%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+    bottom: 0px;
+   
+  }
+
+  #coffeepic3{
+    /*Photo by James Sutton on Unsplash*/
+
+   
+    float: left;
+    margin-top: 5%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+    bottom: 0px;
+   
+
+  }
