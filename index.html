@@ -5,33 +5,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Latte Collector</title>
 </head>
 <body>
-  <div  >
-    <div  id="coffeepic1">
 
-        <img src="coffee1.jpg"  id="#coffeepic1" style= "height: 200px; width:200px;" alt="a picture of latte with a flower designed in froth">
+     <!-- This section is for the title -->
 
+     <div class="title">
+        <h1>Latte Collector</h1>
+     </div>
+
+     <!-- This section is for the instructions -->
+
+     <div class="instruct">
+            <span><p>You will be given a random number at the start of the game.</p></span>
+            <span><p>There are four lattes below.
+            By clicking on a latte you will add a specific amount of points to your total score.</p></span>
+            <span><p>You win the game by matching your total score to random number, 
+                you lose the game if your total score goes above the random number.</p></span>
+                <span><p>The value of each latte is hidden from you until you click on it.</p></span>
+                <span><p>Each time when the game starts, the game will change the values of each latte.</p></span>
+        </div>
+
+
+        <h1> <span id="number-to-guess"></span></h1>
+
+
+
+    <!-- This section holds on my imgs in one div -->
+
+    <div class="move">
+    
+        <img src="coffee1.jpg"  id="coffeepic1"  alt="a picture of latte with a flower designed in froth">
+
+        <img src="coffee2.jpg" id="coffeepic2" alt="a picture of latte with a leaf designed in froth">
+
+        <img src="coffee3.jpg" id="coffeepic3"  alt="a picture of latte with a leaf designed in froth">
+
+        <img src="coffee4.jpg" id="coffeepic4"  alt="a picture of latte in a white mug">
+    
     </div>
 
-    
-    <div  id="coffeepic2">
 
-            <img src="coffee2.jpg" style= "height: 200px; width:200px;" alt="a picture of latte with a leaf designed in froth">
-    
-    </div>
-
-        
-    <div id="coffeepic3">
-
-            <img src="coffee3.jpg" style= "height: 200px; width:200px;" alt="a picture of latte with a leaf designed in froth">
-    
-    </div>
-</div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+<script type="text/javascript">
 
+    var targetNumber = "";
+
+    $("#number-to-guess").text(targetNumber);
+  targetNumber = targetNumber[Math.floor(Math.random() *100)];
+    var counter = 0;
+  
+    // We begin by expanding our array to include four options.
+    var numberOptions = [10, 20, 5, 1];
+    for (var i = 0; i < numberOptions.length; i++) {
+
+    //  We will create an imageCrystal, for each iteration.
+    var imagelatte = $("<img>");
+
+        // This will allow the CSS to take effect.
+        imagelatte.addClass("coffeepic1");
+        imagelatte.addClass("coffeepic2");
+        imagelatte.addClass("coffeepic3");
+        imagelatte.addClass("coffeepic4");
+
+
+        imagelatte.attr("src", "https://images.unsplash.com/photo-1475241404975-c3ae90fdd9e6?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=brigitte-tohm-BnrKDRn5sjg-unsplash.jpg");
+        imagelatte.attr("src", "https://images.unsplash.com/photo-1444418185997-1145401101e0?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=frankie-F_EfOSXh0sI-unsplash.jpg");
+        imagelatte.attr("src", "https://images.unsplash.com/photo-1488762850512-5d97ca427095?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=james-sutton-d2y3hKRGH9g-unsplash.jpg");
+        imagelatte.attr("src", "https://images.unsplash.com/photo-1553110581-3f0c7e7e955f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1402&q=80.jpg");
+
+        // Each imageCrystal will be given a data attribute called data-crystalValue.
+        // This data attribute will be set equal to the array value.
+        imagelatte.attr("data-lattevalue", numberOptions[i]);
+
+        // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
+        $("#coffeepic1").append(imagelatte);
+        $("#coffeepic2").append(imagelatte);
+        $("#coffeepic3").append(imagelatte);
+        $("#coffeepic4").append(imagelatte);
+    }
+
+    // This time, our click event applies to every single crystal on the page. Not just one.
+    $("#coffeepic1,#coffeepic2",).on("click", function() {
+
+       
+        // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
+
+        var latteValue = ($(this).attr("data-lattevalue"));
+
+        latteValue = parseInt(latteValue);
+        // Every click, from every  latte adds to the global counter.
+        counter += latteValue;
+
+        // All of the same game win-lose logic applies. So the rest remains unchanged.
+        alert("New score: " + counter);
+
+        if (counter === targetNumber) {
+        alert("You win!");
+        }
+
+        else if (counter >= targetNumber) {
+        alert("You lose!!");
+        }
+
+    });
 
 
 </script>

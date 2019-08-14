@@ -9,9 +9,33 @@ html {
     background-size: cover;
   }
 
-.move{
-  top: 80%;
+
+.title{
+float: left;
+background-color: #606060;
+color: white;
+width: 60%;
+height: 5%;
+font-size: 200%;
+margin-right: 100%
+
 }
+.instruct {
+  margin-top: 3%;
+  float: left;
+  background-color: #adadad;
+  color: white;
+  width: 60%;
+  height: 5%;
+  font-size: 150%;
+  margin-right: 100%;
+  font-family: 'Times New Roman', Times, serif;
+  }
+
+.move{
+ margin-top: 10%;
+}
+
 
   #coffeepic1{
     /*Photo by Brigitte Tohm on UnsplashPhoto*/
@@ -20,8 +44,11 @@ html {
     margin-top: 5%;
     margin-right: 5%;
     margin-left: 5%;
-    margin-bottom: 5%;
+    margin-bottom: 1%;
     bottom: 0px;
+    height: 200px; 
+    width:200px;
+    
   
   }
 
@@ -30,10 +57,14 @@ html {
 
     float: left;
     margin-top: 5%;
-    margin-right: 5%;
-    margin-left: 5%;
-    margin-bottom: 5%;
+    margin-right: 4%;
+    margin-left: 4%;
+    margin-bottom: 1%;
     bottom: 0px;
+    height: 200px; 
+    width:200px;
+   
+    
    
   }
 
@@ -43,10 +74,27 @@ html {
    
     float: left;
     margin-top: 5%;
-    margin-right: 5%;
-    margin-left: 5%;
-    margin-bottom: 5%;
+    margin-right: 4%;
+    margin-left: 4%;
+    margin-bottom: 1%;
     bottom: 0px;
-   
+    height: 200px; 
+    width:200px;
+    bottom: 0px;
+    
+  }
 
+  #coffeepic4{
+    /*Photo by George Kroeker on Unsplash*/
+  
+    float: left;
+    margin-top: 5%;
+    margin-right: 4%;
+    margin-left: 4%;
+    margin-bottom: 1%;
+    bottom: 0px;
+    height: 200px; 
+    width:200px;
+    
+  
   }
