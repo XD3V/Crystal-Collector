@@ -31,93 +31,262 @@
         <h1> <span id="number-to-guess"></span></h1>
 
 
+      <div id="win-tracker-div"></div>
+
+      <div id="loss-tracker-div"></div>
+
+   </div>
+
 
     <!-- This section holds on my imgs in one div -->
 
     <div class="move">
-    
-        <img src="coffee1.jpg"  id="coffeepic1"  alt="a picture of latte with a flower designed in froth">
-
-        <img src="coffee2.jpg" id="coffeepic2" alt="a picture of latte with a leaf designed in froth">
-
-        <img src="coffee3.jpg" id="coffeepic3"  alt="a picture of latte with a leaf designed in froth">
-
-        <img src="coffee4.jpg" id="coffeepic4"  alt="a picture of latte in a white mug">
+        <div id="coffeepic1">
+      
+        </div>
+        <div id="coffeepic2">
+        
+        </div>
+        <div id="coffeepic3">
+        
+        </div>
+        <div id="coffeepic4">
+        </div>
     
     </div>
 
+   <div>
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      
 
-<script type="text/javascript">
-
-    var targetNumber = "";
-
-    $("#number-to-guess").text(targetNumber);
-  targetNumber = targetNumber[Math.floor(Math.random() *100)];
-    var counter = 0;
-  
-    // We begin by expanding our array to include four options.
-    var numberOptions = [10, 20, 5, 1];
-    for (var i = 0; i < numberOptions.length; i++) {
-
-    //  We will create an imageCrystal, for each iteration.
-    var imagelatte = $("<img>");
-
-        // This will allow the CSS to take effect.
-        imagelatte.addClass("coffeepic1");
-        imagelatte.addClass("coffeepic2");
-        imagelatte.addClass("coffeepic3");
-        imagelatte.addClass("coffeepic4");
+    
 
 
-        imagelatte.attr("src", "https://images.unsplash.com/photo-1475241404975-c3ae90fdd9e6?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=brigitte-tohm-BnrKDRn5sjg-unsplash.jpg");
-        imagelatte.attr("src", "https://images.unsplash.com/photo-1444418185997-1145401101e0?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=frankie-F_EfOSXh0sI-unsplash.jpg");
-        imagelatte.attr("src", "https://images.unsplash.com/photo-1488762850512-5d97ca427095?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=james-sutton-d2y3hKRGH9g-unsplash.jpg");
-        imagelatte.attr("src", "https://images.unsplash.com/photo-1553110581-3f0c7e7e955f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1402&q=80.jpg");
+  <!-- JAVASCRIPT  -->
+  <!-- ========================================= -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-        // Each imageCrystal will be given a data attribute called data-crystalValue.
-        // This data attribute will be set equal to the array value.
-        imagelatte.attr("data-lattevalue", numberOptions[i]);
+  <script type="text/javascript">
 
-        // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
-        $("#coffeepic1").append(imagelatte);
-        $("#coffeepic2").append(imagelatte);
-        $("#coffeepic3").append(imagelatte);
-        $("#coffeepic4").append(imagelatte);
+ 
+
+  var counter = 0;
+
+  var wins = 0;
+
+  var losses = 0; 
+  var targetNumber = '';
+
+  var targetNumber = Math.floor(Math.random() *101)+19;
+
+  $("#number-to-guess").text(targetNumber);
+  // Now for the hard part. Creating multiple crystals each with their own unique number value.
+
+
+
+ 
+
+      
+  // We begin by expanding our array to include four options.
+  var numberOptions1 =  [20, 5, 1, 10];
+
+  // Next we create a for loop to create crystals for every numberOption.
+  for (var i = 0; i < numberOptions1.length; i++) {
+
+    // For each iteration, we will create an imageCrystal
+    var imageLatte = $("<img>");
+
+    // First each crystal will be given the class ".crystal-image".
+    // This will allow the CSS to take effect.
+    imageLatte.addClass("coffeepic1");
+
+    // Each imageCrystal will be given a src link to the crystal image
+    imageLatte.attr("src","https://images.unsplash.com/photo-1475241404975-c3ae90fdd9e6?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=brigitte-tohm-BnrKDRn5sjg-unsplash.jpg,");
+
+    // Each imageCrystal will be given a data attribute called data-crystalValue.
+    // This data attribute will be set equal to the array value.
+    imageLatte.attr("data-lattevalue", numberOptions1[i]);
+
+    // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
+    $("#coffeepic1").append(imageLatte);
+
     }
 
-    // This time, our click event applies to every single crystal on the page. Not just one.
-    $("#coffeepic1,#coffeepic2",).on("click", function() {
-
-       
-        // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
-
-        var latteValue = ($(this).attr("data-lattevalue"));
-
-        latteValue = parseInt(latteValue);
-        // Every click, from every  latte adds to the global counter.
-        counter += latteValue;
-
-        // All of the same game win-lose logic applies. So the rest remains unchanged.
-        alert("New score: " + counter);
-
-        if (counter === targetNumber) {
-        alert("You win!");
-        }
-
-        else if (counter >= targetNumber) {
-        alert("You lose!!");
-        }
-
-    });
 
 
-</script>
+     
+      
+  // This time, our click event applies to every single crystal on the page. Not just one.
+  $(".coffeepic1").on("click", function() {
+
+    // Determining the crystal's value requires us to extract the value from the data attribute.
+    // Using the $(this) keyword specifies that we should be extracting the crystal value of the clicked crystal.
+    // Using the .attr("data-crystalvalue") allows us to grab the value out of the "data-crystalvalue" attribute.
+    // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
+
+    var latteValue = ($(this).attr("data-lattevalue"));
+    latteValue = parseInt(latteValue);
+    // We then add the crystalValue to the user's "counter" which is a global variable.
+    // Every click, from every crystal adds to the global counter.
+    
+    counter += latteValue;
+    // All of the same game win-lose logic applies. So the rest remains unchanged.
+    alert("New score: " + counter);
+
+
+function gameTime (){ 
+  var targetNumber = '';
+
+  var targetNumber = Math.floor(Math.random() *101)+19;
+
+  $("#number-to-guess").text(targetNumber);
+
+   $("#loss-tracker-div").html(losses);
+
+    $("#win-tracker-div").html("Wins: " + wins);
+
+    imageLatte.attr("data-lattevalue", numberOptions1[i]);
+
+    $("#coffeepic1").append(imageLatte);
+
+    var latteValue = ($(this).attr("data-lattevalue"));
+
+    latteValue = parseInt(latteValue);
+
+    counter = 0;
+   
+  }
+
+    if (counter === targetNumber) {
+      alert("You win!");
+      wins++;
+      gameTime ();
+    }
+
+    else if (counter >= targetNumber) {
+      alert("You lose!!");
+      losses++;
+      gameTime ();
+    }
+    
+  });
+
+  
+  </script>
 </body>
 </html>
 
 
 
-</html>
 
+// <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+// <script type="text/javascript">
+
+//     var targetNumber = '';
+
+//     var targetNumber = Math.floor(Math.random() *101)+19;
+    
+
+
+//     $("#number-to-guess").html(targetNumber);
+
+//      var counter = 0;
+    
+//     // We begin making a random number for each photo.
+//     var numberOptions1 = Math.floor(Math.random() *11) +1  
+   
+
+  
+//         var imagelatte1= $("<img>");
+ 
+//         // This will allow the CSS to take effect.
+//         imagelatte1.addClass("coffeepic1");
+       
+
+
+//         imagelatte1.attr("src","https://images.unsplash.com/photo-1475241404975-c3ae90fdd9e6?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=brigitte-tohm-BnrKDRn5sjg-unsplash.jpg,");
+        
+        
+
+//         // Each imageCrystal will be given a data attribute called data-crystalValue.
+//         // This data attribute will be set equal to the array value.
+//         imagelatte1.attr("data-lattevalue", numberOptions1);
+
+//         // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
+//         $("coffeepic1").append(imagelatte1);
+   
+// //     //latte number two
+// //     for (var i = 0; i < numberOptions.length; i++) {
+
+// // //  We will create an imageCrystal, for each iteration.
+// //     var imagelatte1 = $("<img>");
+    
+
+// //     // This will allow the CSS to take effect.
+// //     imagelatte1.addClass("coffeepic1");
+   
+
+
+// //     imagelatte1.attr("src","https://images.unsplash.com/photo-1475241404975-c3ae90fdd9e6?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=brigitte-tohm-BnrKDRn5sjg-unsplash.jpg,");
+    
+    
+
+// //     // Each imageCrystal will be given a data attribute called data-crystalValue.
+// //     // This data attribute will be set equal to the array value.
+// //     imagelatte.attr("data-lattevalue", numberOptions1[i]);
+
+// //     // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
+// //     $("#coffeepic1").append(imagelatte1);
+    
+// // }
+
+//     // var imagelatte2 = $("<img>");
+//     //     var imagelatte3 = $("<img>");
+//     //     var imagelatte4 = $("<img>");
+
+//     //     imagelatte2.addClass("coffeepic2");
+//     //     imagelatte3.addClass("coffeepic3");
+//     //     imagelatte4.addClass("ccoffeepic4");  
+//     //     imagelatte2.attr("src","https://images.unsplash.com/photo-1444418185997-1145401101e0?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=frankie-F_EfOSXh0sI-unsplash.jpg");
+//     //     imagelatte3.attr("src","https://images.unsplash.com/photo-1488762850512-5d97ca427095?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=james-sutton-d2y3hKRGH9g-unsplash.jpg");
+//     //     imagelatte4.attr("src","https://images.unsplash.com/photo-1553110581-3f0c7e7e955f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1402&q=80.jpg");
+// // ,#coffeepic2,#coffeepic3,#coffeepic4 
+// //  var numberOptions2 = Math.floor(Math.random() *11)+1;
+// //     var numberOptions3 = Math.floor(Math.random() *11)+1;
+// //     var numberOptions4 = Math.floor(Math.random() *11)+1;
+
+//     // This time, our click event applies to every single crystal on the page. Not just one.
+//     $("coffeepic1").on("click", function() {
+
+       
+//         // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
+
+//         var latteValue = ($(this).attr("data-latteValue",numberOptions1));
+
+//         latteValue1 = parseInt(latteValue);
+//         // Every click, from every  latte adds to the global counter.
+//         counter += latteValue;
+
+//         // All of the same game win-lose logic applies. So the rest remains unchanged.
+//         alert("New score: " + counter);
+
+//         if (counter === targetNumber) {
+//         alert("You win!");
+//         }
+
+//         else if (counter >= targetNumber) {
+//         alert("You lose!!");
+//         }
+
+//     });
+
+
+// </script>
+// </body>
+// </html>
+
+
+
+// </html>
+//  -->

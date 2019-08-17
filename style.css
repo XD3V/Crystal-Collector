@@ -37,7 +37,7 @@ margin-right: 100%
 }
 
 
-  #coffeepic1{
+  .coffeepic1{
     /*Photo by Brigitte Tohm on UnsplashPhoto*/
   
     float: left;
@@ -52,7 +52,7 @@ margin-right: 100%
   
   }
 
-  #coffeepic2{
+  .coffeepic2{
     /*Photo by frankie on Unsplash*/
 
     float: left;
@@ -68,7 +68,7 @@ margin-right: 100%
    
   }
 
-  #coffeepic3{
+  .coffeepic3{
     /*Photo by James Sutton on Unsplash*/
 
    
@@ -84,7 +84,7 @@ margin-right: 100%
     
   }
 
-  #coffeepic4{
+  .coffeepic4{
     /*Photo by George Kroeker on Unsplash*/
   
     float: left;
