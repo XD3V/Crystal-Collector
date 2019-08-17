@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -27,16 +28,30 @@
                 <span><p>Each time when the game starts, the game will change the values of each latte.</p></span>
         </div>
 
+  <div class="display">
 
-        <h1> <span id="number-to-guess"></span></h1>
+            <h1>Number to guess:</h1>
 
+      <h1> <span id="number-to-guess"></span></h1>
+                    <br>
+  </div>
+
+  <div class="display">
+                     <br>
 
       <div id="win-tracker-div"></div>
 
+                    <br>
+
       <div id="loss-tracker-div"></div>
 
-   </div>
+                    <br>
+                  
+      <div id="count-tracker-div"></div>
 
+                    <br>
+  
+  </div>
 
     <!-- This section holds on my imgs in one div -->
 
@@ -61,122 +76,140 @@
 
     
 
-
+<!-- 
   <!-- JAVASCRIPT  -->
-  <!-- ========================================= -->
+
+  <!-- =====Just to let you know, I was not able to make it work on the javaScript file ================ -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <script type="text/javascript">
 
- 
 
-  var counter = 0;
+var counter = 0;
 
-  var wins = 0;
+var wins = 0;
 
-  var losses = 0; 
-  var targetNumber = '';
+var losses = 0; 
 
-  var targetNumber = Math.floor(Math.random() *101)+19;
+var targetNumber = '';
 
-  $("#number-to-guess").text(targetNumber);
-  // Now for the hard part. Creating multiple crystals each with their own unique number value.
+var targetNumber = Math.floor(Math.random() *101)+19;
 
-
-
- 
-
-      
-  // We begin by expanding our array to include four options.
-  var numberOptions1 =  [20, 5, 1, 10];
-
-  // Next we create a for loop to create crystals for every numberOption.
-  for (var i = 0; i < numberOptions1.length; i++) {
-
-    // For each iteration, we will create an imageCrystal
-    var imageLatte = $("<img>");
-
-    // First each crystal will be given the class ".crystal-image".
-    // This will allow the CSS to take effect.
-    imageLatte.addClass("coffeepic1");
-
-    // Each imageCrystal will be given a src link to the crystal image
-    imageLatte.attr("src","https://images.unsplash.com/photo-1475241404975-c3ae90fdd9e6?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=brigitte-tohm-BnrKDRn5sjg-unsplash.jpg,");
-
-    // Each imageCrystal will be given a data attribute called data-crystalValue.
-    // This data attribute will be set equal to the array value.
-    imageLatte.attr("data-lattevalue", numberOptions1[i]);
-
-    // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
-    $("#coffeepic1").append(imageLatte);
-
-    }
+$("#number-to-guess").text(targetNumber);
+// Now for the hard part. Creating multiple latte each with their own unique number value.
 
 
 
-     
-      
-  // This time, our click event applies to every single crystal on the page. Not just one.
-  $(".coffeepic1").on("click", function() {
 
-    // Determining the crystal's value requires us to extract the value from the data attribute.
-    // Using the $(this) keyword specifies that we should be extracting the crystal value of the clicked crystal.
-    // Using the .attr("data-crystalvalue") allows us to grab the value out of the "data-crystalvalue" attribute.
-    // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
 
-    var latteValue = ($(this).attr("data-lattevalue"));
-    latteValue = parseInt(latteValue);
-    // We then add the crystalValue to the user's "counter" which is a global variable.
-    // Every click, from every crystal adds to the global counter.
     
-    counter += latteValue;
-    // All of the same game win-lose logic applies. So the rest remains unchanged.
-    alert("New score: " + counter);
+// We begin by expanding our array to include four options.
+var numberOptions1 =  [20, 5, 1, 10];
+
+// Next we create a for loop to create crystals for every numberOption.
+for (var i = 0; i < numberOptions1.length; i++) {
+
+  // For each iteration, we will create an imageLatte
+  var imageLatte = $("<img>");
+
+  // First each latte will be given the class ".latte-image".
+  // This will allow the CSS to take effect.
+  imageLatte.addClass("coffeepic1");
+
+  // Each imageLatte will be given a src link to the latte image
+  imageLatte.attr("src","https://images.unsplash.com/photo-1475241404975-c3ae90fdd9e6?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=brigitte-tohm-BnrKDRn5sjg-unsplash.jpg,");
+
+  // Each imageLatte will be given a data attribute called data-latteValue.
+  // This data attribute will be set equal to the array value.
+  imageLatte.attr("data-lattevalue", numberOptions1[i]);
+
+  // Lastly, each latte image (with all it classes and attributes) will get added to the page.
+  $("#coffeepic1").append(imageLatte);
+
+  }
+
+
+
+   
+    
+// This time, our click event applies to every single latte on the page. Not just one.
+$(".coffeepic1").on("click", function() {
+
+  // Determining the latte's value requires us to extract the value from the data attribute.
+  // Using the $(this) keyword specifies that we should be extracting the latte value of the clicked latte.
+  // Using the .attr("data-lattevalue") allows us to grab the value out of the "data-lattevalue" attribute.
+  // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
+
+  var latteValue = ($(this).attr("data-lattevalue"));
+  latteValue = parseInt(latteValue);
+  // We then add the latteValue to the user's "counter" which is a global variable.
+  // Every click, from every latte adds to the global counter.
+  
+  counter += latteValue;
+  // All of the same game win-lose logic applies. So the rest remains unchanged.
+
+  $("#count-tracker-div").html("Your total score is:"+ "   "+ counter);
 
 
 function gameTime (){ 
-  var targetNumber = '';
+var targetNumber = '';
 
-  var targetNumber = Math.floor(Math.random() *101)+19;
+var targetNumber = Math.floor(Math.random() *101)+19;
 
-  $("#number-to-guess").text(targetNumber);
+  imageLatte.attr("data-lattevalue", numberOptions1[i]);
 
-   $("#loss-tracker-div").html(losses);
+  $("#coffeepic1").append(imageLatte);
 
-    $("#win-tracker-div").html("Wins: " + wins);
 
-    imageLatte.attr("data-lattevalue", numberOptions1[i]);
+  latteValue = parseInt(latteValue);
 
-    $("#coffeepic1").append(imageLatte);
+  counter = 0;
+ 
+$("#number-to-guess").text(targetNumber);
 
-    var latteValue = ($(this).attr("data-lattevalue"));
+ $("#loss-tracker-div").html("losses: " +losses);
 
-    latteValue = parseInt(latteValue);
+  $("#win-tracker-div").html("Wins: " + wins);
 
-    counter = 0;
-   
+  $("#count-tracker-div").html("New score: " + counter);
+}
+
+
+if (counter === targetNumber) {
+    alert("You win!");
+    wins++;
+    gameTime ();
   }
 
-    if (counter === targetNumber) {
-      alert("You win!");
-      wins++;
-      gameTime ();
-    }
-
-    else if (counter >= targetNumber) {
-      alert("You lose!!");
-      losses++;
-      gameTime ();
-    }
-    
-  });
+  else if (counter >= targetNumber) {
+    alert("You lose!!");
+    losses++;
+    gameTime ();
+  }
+  
+  
+});
 
   
   </script>
+
+<!-- for some reason my jave wont connect -->
+  <!-- <script src="javaScript.js"></script> -->
+
 </body>
 </html>
+ -->
 
 
+
+
+
+
+
+
+
+
+<!-- This is unnessary code that I wil get back too. -->
 
 
 // <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

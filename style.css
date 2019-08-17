@@ -1,4 +1,4 @@
-/* These are all free photos, but i just wanted to credit the artist even though it was not  necessary */
+/* These are all free photos, but I just wanted to credit the artist even though it was not  necessary */
 
 html { 
  /*Photo by Tim Mossholder on Unsplash*/
@@ -31,6 +31,18 @@ margin-right: 100%
   margin-right: 100%;
   font-family: 'Times New Roman', Times, serif;
   }
+
+  .display {
+    margin-top: 3%;
+    float: left;
+    background-color:#4f9a5a;
+    color: white;
+    width: 25%;
+    height: 3%;
+    font-size: 150%;
+    margin-right: 100%;
+    font-family: 'Times New Roman', Times, serif;
+    }
 
 .move{
  margin-top: 10%;
