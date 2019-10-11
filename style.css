@@ -39,7 +39,7 @@ margin-right: 100%
     color: white;
     width: 25%;
     height: 3%;
-    font-size: 150%;
+    font-size: 250%;
     margin-right: 100%;
     font-family: 'Times New Roman', Times, serif;
     }
@@ -53,60 +53,10 @@ margin-right: 100%
     /*Photo by Brigitte Tohm on UnsplashPhoto*/
   
     float: left;
-    margin-top: 5%;
-    margin-right: 5%;
-    margin-left: 5%;
-    margin-bottom: 1%;
+    margin: 5%;
     bottom: 0px;
-    height: 200px; 
-    width:200px;
-    
-  
-  }
-
-  .coffeepic2{
-    /*Photo by frankie on Unsplash*/
-
-    float: left;
-    margin-top: 5%;
-    margin-right: 4%;
-    margin-left: 4%;
-    margin-bottom: 1%;
-    bottom: 0px;
-    height: 200px; 
-    width:200px;
-   
-    
-   
-  }
-
-  .coffeepic3{
-    /*Photo by James Sutton on Unsplash*/
-
-   
-    float: left;
-    margin-top: 5%;
-    margin-right: 4%;
-    margin-left: 4%;
-    margin-bottom: 1%;
-    bottom: 0px;
-    height: 200px; 
-    width:200px;
-    bottom: 0px;
-    
-  }
-
-  .coffeepic4{
-    /*Photo by George Kroeker on Unsplash*/
-  
-    float: left;
-    margin-top: 5%;
-    margin-right: 4%;
-    margin-left: 4%;
-    margin-bottom: 1%;
-    bottom: 0px;
-    height: 200px; 
-    width:200px;
+    height: 10%; 
+    width: 10%;
     
   
   }
