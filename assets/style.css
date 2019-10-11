@@ -2,7 +2,7 @@
 
 html { 
  /*Photo by Tim Mossholder on Unsplash*/
-    background: url(bgimg.jpg) no-repeat center center fixed; 
+    background: url(./images/bgimg.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
